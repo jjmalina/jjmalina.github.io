@@ -6,7 +6,7 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jjmalina.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Laziness and Streams - Part 1</title>
       <link>https://jjmalina.github.io/posts/laziness-and-streams-pt-1/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://jjmalina.github.io/posts/laziness-and-streams-pt-1/</guid>
       <description>I&amp;rsquo;m currently working my way through Functional Programming in Scala. Chapter 5 focuses on non-strictness as a property of functions. I found the chapter really fascinating because this property allows one to build a lazily evaluated list. In the next post, I&amp;rsquo;ll try doing the same in Python. What follows here my explanation in Scala taken from the book. I try to cover the Scala specific syntax and features so hopefully this makes sense even if you&amp;rsquo;re not familiar with Scala.</description>
