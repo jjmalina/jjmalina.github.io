@@ -181,7 +181,7 @@ that the function may choose not to evaluate one or more of its arguments. In co
 <p>The problem we&rsquo;re solving:</p>
 
 <p>Let&rsquo;s say we have an array in JavaScript and we want to transform the values and also filter them. Here we increment each number in the array and then filter to get only the even numbers.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>].map(num =&gt; num <span style="color:#666">+</span> <span style="color:#666">1</span>).filter(num =&gt; num <span style="color:#666">%</span> <span style="color:#666">2</span>)
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">[<span style="color:#666">1</span>, <span style="color:#666">2</span>, <span style="color:#666">3</span>].map(num =&gt; num <span style="color:#666">+</span> <span style="color:#666">1</span>).filter(num =&gt; num <span style="color:#666">%</span> <span style="color:#666">2</span> <span style="color:#666">===</span> <span style="color:#666">0</span>)
 </code></pre></div>
 <p><code>map</code> and <code>filter</code> are great because we can decompose the operations on the elements of the array into different functions. The downside is that it&rsquo;ll take two iterations through the array; once for map and once for filter. On small arrays we won&rsquo;t mind the performance hit, but on larger arrays it could be an issue. It would be best if we could use map and filter the same way without the performance cost.</p>
 
@@ -315,13 +315,18 @@ If we wanted to convert the stream to a list and evaluate everything we need add
 
 <p>Pretty cool huh? At this point I was curious about being able to do this in Python and JavaScript which I&rsquo;m more familiar with. I found this <a href="https://blog.jeremyfairbank.com/javascript/functional-javascript-streams-2/">great article by Jeremy Fairbank on creating functional streams in JavaScript</a></p>
 
-<p>Python is my go-to language, so in the next post I&rsquo;ll implement <code>Stream</code> in Python. The challenge is that Python doesn&rsquo;t have non-strictness or laziness the same way that Scala does.</p>
+<p>Python is my go-to language, so in the next part I&rsquo;ll implement <code>Stream</code> in Python. The challenge is that Python doesn&rsquo;t have non-strictness or laziness the same way that Scala does.</p>
 
   </div>
   
 
 <div class="navigation navigation-single">
     
+    
+    <a href="/posts/laziness-and-streams-pt-2/" class="navigation-next">
+      <span class="navigation-tittle">Laziness and Streams - Part 2</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
     
 </div>
 

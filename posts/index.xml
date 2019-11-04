@@ -6,10 +6,19 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jjmalina.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Laziness and Streams - Part 2</title>
+      <link>https://jjmalina.github.io/posts/laziness-and-streams-pt-2/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjmalina.github.io/posts/laziness-and-streams-pt-2/</guid>
+      <description>Following up from Laziness and Streams - Part 1 and inspired by Jeremy Fairbank&amp;rsquo;s function streams in JavaScript I wanted to try to implement a lazy Stream in Python. The problem is that Python does not have non-strict arguments like Scala does with the =&amp;gt; operator. Python does have a lambda keyword which you can use to define functions in a single line expression. The lambda keyword doesn&amp;rsquo;t need to take arguments, so it can be used as a non-strictness operator hack.</description>
+    </item>
     
     <item>
       <title>Laziness and Streams - Part 1</title>
