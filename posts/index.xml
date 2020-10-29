@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on </title>
@@ -6,10 +6,20 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://jjmalina.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Building A Mechanical Keyboard</title>
+      <link>https://jjmalina.github.io/posts/building-a-mechanical-keyboard/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jjmalina.github.io/posts/building-a-mechanical-keyboard/</guid>
+      <description>Background I&amp;rsquo;ve been using a Coolermaster TKL layout mechanical keyboard with Cherry MX Blue switches (the loud tactile clicky ones) for quite a while now, but I was recently inspired by Taeha Types and Andy V Nguyen on YouTube to look into building my own mechanical keyboard. I went down the rabbithole and decided to document the experience here.
+Taeha Types has a great starting point video explaining everything that goes into a mechanical keyboard.</description>
+    </item>
     
     <item>
       <title>Laziness and Streams - Part 2</title>

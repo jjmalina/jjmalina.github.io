@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+    
+    
+    
+
+<title>Building A Mechanical Keyboard • </title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building A Mechanical Keyboard"/>
+<meta name="twitter:description" content="Background I&rsquo;ve been using a Coolermaster TKL layout mechanical keyboard with Cherry MX Blue switches (the loud tactile clicky ones) for quite a while now, but I was recently inspired by Taeha Types and Andy V Nguyen on YouTube to look into building my own mechanical keyboard. I went down the rabbithole and decided to document the experience here.
+Taeha Types has a great starting point video explaining everything that goes into a mechanical keyboard."/>
+
+<meta property="og:title" content="Building A Mechanical Keyboard" />
+<meta property="og:description" content="Background I&rsquo;ve been using a Coolermaster TKL layout mechanical keyboard with Cherry MX Blue switches (the loud tactile clicky ones) for quite a while now, but I was recently inspired by Taeha Types and Andy V Nguyen on YouTube to look into building my own mechanical keyboard. I went down the rabbithole and decided to document the experience here.
+Taeha Types has a great starting point video explaining everything that goes into a mechanical keyboard." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jjmalina.github.io/posts/building-a-mechanical-keyboard/" />
+<meta property="article:published_time" content="2020-10-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-10-28T00:00:00+00:00" />
+
+
+    
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.a3bdc37d9526f67538a8c6f647c86cfb8b5c0c50c4a1b0adf763b347e53bb98a.css" integrity="sha256-o73DfZUm9nU4qMb2R8hs&#43;4tcDFDEobCt92OzR&#43;U7uYo=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+<link rel="stylesheet" href="https://jjmalina.github.io//css/override.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+</head>
+
+
+    <body class="theme-base-0d ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="https://jjmalina.github.io/"></a>
+      </span>
+      
+        
+        
+        
+        <div class="author-image">
+          <img src="https://jjmalina.github.io/jjm.png" alt="Author Image" class="img--circle img--headshot element--center">
+        </div>
+        
+      
+      
+      <p class="site__description">
+        
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle"></label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/posts/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/about/">
+						<span>About</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/jjmalina" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	<a href="https://github.com/jjmalina" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</section>
+
+      </div>
+    </div>
+    
+<div class="copyright">
+  &copy; 2020 Jeremiah Malina
+  
+</div>
+
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>Building A Mechanical Keyboard</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Oct 28, 2020
+    
+    
+    
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 8 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <h2 id="background">Background</h2>
+<p>I&rsquo;ve been using a <a href="https://www.coolermaster.com/catalog/peripheral/keyboards/quick-fire-stealth/">Coolermaster TKL layout mechanical keyboard</a> with Cherry MX Blue switches (the loud tactile clicky ones) for quite a while now, but I was recently inspired by <a href="https://www.youtube.com/user/FeelgHoodMusic">Taeha Types</a> and <a href="https://www.youtube.com/user/darkchakra">Andy V Nguyen</a> on YouTube to look into building my own mechanical keyboard. I went down the rabbithole and decided to document the experience here.</p>
+<p>Taeha Types has a great starting point video explaining everything that goes into a mechanical keyboard.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/1NpNygIrnaQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="components">Components</h2>
+<h3 id="keyboard-case">Keyboard case</h3>
+<p>I decided to go with a <a href="https://deskthority.net/wiki/75%25">75% layout</a> because I wanted something more compact than my previous <a href="https://deskthority.net/wiki/Tenkeyless_keyboard">TKL layout</a>, but I didn&rsquo;t want to sacrifice the function or paging keys. I went with the <a href="https://kbdfans.com/collections/diy-kit/products/kbd75v2-custom-keyboard-diy-kit">KBD75v2</a> case with a brass plate. Brass is heavier and more rigid than aluminum or polycarbonate giving the keyboard a more stable feel. In addition to the KBD75v2 case and plate you need the <a href="https://kbdfans.com/collections/75/products/kbdfans-75-pcb-75">KBD75v2 PCB</a> to solder the switches into. There are other PCBs on the market that are hotwsappable meaning they can be plugged in and out without soldering. Some cases/plates have different mounting systems, but generally the switches snap through the plate into the PCB and get soldered in. Most kits have the case, plate and PCB all together but I think KBDFans stocks the PCB separately. Cases, plates and PCBs don&rsquo;t necessarily fit together if they are the same layout because the placement of the USB port and mounting holes might not be compatible.</p>
+<h3 id="switches">Switches</h3>
+<p>The number of switches on the market is definitely overwhelming. It&rsquo;s difficult to decide on a switch because they differ in linear vs tactile movement, actuation/bottom out force, and how they sound. I wanted a linear switch that typed smoothly and sounded &ldquo;thocky&rdquo;. After watching one typing test after another on YouTube I settled on <a href="https://youtu.be/h9QlGRQpFdI?t=488">Gateron Black Inks</a>. They have a little bit of a heavier resistance but are super smooth and sound great. The other switches that I found attractive were the Alpacas (hard to find in stock) and Tealios. There was a risk I&rsquo;d be unhappy buying 90 Gateron Black Ink switches without trying them first (they were to be soldered into the board), but people seemed pleased with them in their builds. Make sure you order the right amount of switches for your layout because the name 75% doesn&rsquo;t mean 75 switches, you need 84.</p>
+<p>To improve the sound and feel of the switches I planned to lube them with Krytox 205g0 (the most common lube but some switches go better with the different lubes) and install housing films. There&rsquo;s many videos on YouTube showing the difference between lubed/unlubed filmed/unfilmed switches and it&rsquo;s clear that this improves the sound and feel. There are a few different film products which really only differ in thickness. Some switches have less stem wobble because the housing fits tightly so for those you want a thinner film.</p>
+<p>To do the lubing and filming of my switches I purchased <a href="https://www.amazon.com/Mechanical-Keyboard-Inter-axial-Structure-Compatible/dp/B08FM7147Q/">switch films</a>, <a href="https://divinikey.com/collections/lubricant/products/krytox-gpl-205-grade-0-switch-lubricant">lube</a>, a <a href="https://www.amazon.com/gp/product/B01D9W6SNS/">small brush</a>, <a href="https://www.amazon.com/gp/product/B00FZPFQHM">tweezers</a>, a <a href="https://www.amazon.com/gp/product/B01DPZ08NA/">4 prong jeweler holder</a>, and a <a href="https://www.amazon.com/gp/product/B07XQGLP8H/">switch opener</a>.</p>
+<h3 id="stabilizers">Stabilizers</h3>
+<p>For the wide keys of a keyboard you need a stabilizer to keep the key from wobbling. For the 75% layout that meant a stabilizer for left shift, space, enter and backspace. I ordered these <a href="https://www.amazon.com/gp/product/B07ZLXCWY9">stabilizers on Amazon</a> along with <a href="https://www.amazon.com/a15112300ux0387-2mmx4mmx0-5mm-Motherboard-Insulating-Washers/dp/B01ARADX88">washers</a> to prevent the possibility of shorting the PCB. Lubing stabilizers as shown in <a href="https://youtu.be/R6vjiLNyll8">this video</a> is also recommended to eliminate the rattle sound the wire makes when you press a key.</p>
+<h3 id="keycaps">Keycaps</h3>
+<p>Like switches there are tons of keycap sets which have different profiles, styles, and vendors. Most keycaps no matter the brand should fit onto the plus sign looking stems of pretty much all switches. The most common keycap profile (shape) is Cherry which is what my old board had, so I stayed with that and got these <a href="https://kbdfans.com/collections/cherry-profile/products/enjoypbt-abs-dolch-doubleshot-mechanical-keyboard-keycaps-set">EnjoyPBT ABS Doubleshot</a> keycaps. I have to say that the difference in sound and feel between the stock keycaps on my Coolermaster TKL and these ABS doubleshot keycaps is stunning. I think the Coolermaster keycaps are ABS plastic as well but they&rsquo;re much thinner. I also ordered these <a href="https://www.amazon.com/gp/product/B07PHQFHJ8/">PBT keycaps</a> off Amazon which were pretty inexpensive and felt great too.</p>
+<p>The most sought after keycap sets are manufactured by GMK but they&rsquo;re never in stock so you have to order them through a group buy and then wait 6-10 months. There&rsquo;s group buy for the <a href="https://novelkeys.xyz/collections/group-buys/products/gmk-space-cadet-ii-gb">GMK Space Cadet II</a> keycap set which is based off <a href="https://deskthority.net/wiki/Space-cadet_keyboard">the keyboard used on MIT&rsquo;s Lisp machines</a>. I had to get that and now I patiently wait.</p>
+<h2 id="sourcing-components">Sourcing Components</h2>
+<p>Most components aren&rsquo;t sold on Amazon so if you&rsquo;re based in the US I would check out these retailers since whatever they have in stock will ship sooner than KBDFans who ship from China:</p>
+<ul>
+<li><a href="https://mechanicalkeyboards.com/">https://mechanicalkeyboards.com/</a></li>
+<li><a href="https://novelkeys.xyz/">https://novelkeys.xyz/</a></li>
+<li><a href="https://divinikey.com/">https://divinikey.com/</a></li>
+</ul>
+<p>My case, plate &amp; PCB are manufactured and sold by KBDFans but luckily mechanicalkeyboards.com had them in stock. Once you receive the case &amp; PCB, make sure they arrived with the correct screws and also test the PCB (see below). It sucks to realize that something is missing that prevents you from finishing the build.</p>
+<h2 id="building">Building</h2>
+<p>There&rsquo;s plenty of <a href="https://youtu.be/i_OEPrIvNBc">guides on how to build a keyboard</a> but below are the steps with some of my notes as well as the tools I used.</p>
+<ol>
+<li>Lube and film switches (optional)</li>
+</ol>
+<p>Lubing and filming was pretty slow and tedious. I went switch by switch taking it apart, lubing the housing, inserting the film, lubing the spring, lubing the stem, and then putting it together. It probably took me 4 hours for the set of 90. I recommend watching this <a href="https://youtu.be/l8cogVsCmfo">Andy V Nguyen video</a> on how to lube and film switches. Next time around I need to have a more efficent system.</p>
+<p><img src="/keyboard/switch-lubing.jpg" alt=""></p>
+<ol start="2">
+<li>
+<p>Plug in PCB to test the switch contacts with <a href="https://www.amazon.com/gp/product/B00FZPFQHM/">tweezers</a> to ensure that the keys register.
+I recommend downloading <a href="https://caniusevia.com/">VIA</a> for testing. You may need to flash <a href="https://caniusevia.com/docs/download_firmware">new VIA compatible firmware</a> onto your PCB with <a href="https://docs.qmk.fm/#/">QMK</a> if there are updates. I learned through the <a href="https://discord.com/channels/404457789893640232/651276618651926538/741291357284335657">KBDFans Discord</a> that in order for the RGB lighting to be controlled through VIA I had to flash new firmware. Unfortunately I couldn&rsquo;t get QMK to work on Linux so had to install it on Windows.</p>
+</li>
+<li>
+<p>Lube stabilizers as shown in <a href="https://youtu.be/R6vjiLNyll8">this video</a></p>
+</li>
+</ol>
+<p><img src="/keyboard/stabilizer-lubing-1.jpg" alt="">
+<img src="/keyboard/stabilizer-lubing-2.jpg" alt=""></p>
+<ol start="4">
+<li>Install stabilizers into PCB</li>
+</ol>
+<p>It was tricky to know exactly where to screw in the stabilizers because there are many holes in the PCB, so I searched YouTube for a build video of the KBD75v2. Once the stabilizers are screwed in, plug the switches into them and then put keycaps on to test the sound and feel ensuring that there is no wobble or rattle in the stabilizers.</p>
+<ol start="5">
+<li>Snap the plate onto the switches with stabilizers</li>
+</ol>
+<p>At this point you may want to solder the existing switches into the PCB (more on soldering below) because otherwise the PCB and plate won&rsquo;t stay together as you snap in more switches in the next step. Alternatively a clamp of some kind could have solved this.</p>
+<p><img src="/keyboard/stabilizer-testing.jpg" alt=""></p>
+<ol start="6">
+<li>Snap the rest of the switches into the plate and PCB</li>
+</ol>
+<p>Be careful here because it&rsquo;s easy to have a switch pin miss the hole and then get bent flat. So as you snap in every switch make sure the pins are sticking through the holes, if not pull the switch out with a switch puller, fix the pin, and try again. Thankfully the pins felt pretty durable and bending one didn&rsquo;t mean it was broken.</p>
+<p><img src="/keyboard/snapping-in-switches.jpg" alt=""></p>
+<ol start="7">
+<li>Solder the switches into the plate (unless you have a hotswap PCB)</li>
+</ol>
+<p>This was the exciting part for me because I&rsquo;m a novice at soldering. I figured I&rsquo;d probably want to build another keyboard in the future as well as do other soldering work so I invested in this <a href="https://www.amazon.com/gp/product/B00ANZRT4M/">soldering station</a> as well as a <a href="https://www.amazon.com/gp/product/B07VWDN29F/">fume absorber</a>. I practiced soldering first on this <a href="https://www.amazon.com/gp/product/B0711MHKDZ/">digital clock kit</a> which didn&rsquo;t have great instructions but was easy to do once I followed a <a href="https://www.youtube.com/watch?v=5bpNiH4DcOg&amp;t=1s">video</a>. I recommend a <a href="https://www.amazon.com/gp/product/B00FZPDG1K/">pair of clippers</a> to cut the wires in the clock kit. I also recommend wearing a mask, gloves and eye protection because solder contains lead and the fumes are no good.</p>
+<p>Before soldering the keyboard I recommend watching a <a href="https://youtu.be/cRJV1jo5vao">tutorial video</a>. Purchase a <a href="https://www.amazon.com/gp/product/B002MJMXD4/">solder sucker</a> in case you need to redo a solder hole. I bought it just in case thinking I wouldn&rsquo;t use it, but there were a few holes I felt I did a poor job so I redid them. <a href="https://www.amazon.com/NTE-Electronics-SW02-10-No-Clean-Blue-098/dp/B0195UVWJ8/">Solder cleaning wick</a> may also be handly to clean up remaining solder that the sucker didn&rsquo;t get, however I didn&rsquo;t need to use it.</p>
+<p>I learned that after <a href="https://youtu.be/BiFJs_6tIUQ?t=7395">finishing the solder job it&rsquo;s also good to brush the bottom of the PCB with isopropyl alcohol using a toothbrush and q-tips</a>. Apparently the flux in the solder can splatter onto the PCB and slowly cause corrosion.</p>
+<p><img src="/keyboard/switches.jpg" alt=""></p>
+<p>I promise I did a good job soldering but didn&rsquo;t take a photo.</p>
+<ol start="8">
+<li>Plug the PCB in and test the keys</li>
+</ol>
+<p>Just in case a key isn&rsquo;t soldered in well enough or you forgot</p>
+<ol start="9">
+<li>Install PCB w/ plate into the case</li>
+</ol>
+<p>I had to order a new screwdriver set because the one I had wasn&rsquo;t skinny enough to fit into the KBD75v2 case holes.</p>
+<p><img src="/keyboard/encased.jpg" alt=""></p>
+<ol start="10">
+<li>Put the keycaps on and plug it in</li>
+</ol>
+<p><img src="/keyboard/finished.jpg" alt=""></p>
+<ol start="11">
+<li>Type!</li>
+</ol>
+<p>Go to <a href="monkeytype.com">monkeytype.com</a> and enjoy!</p>
+<p><img src="/keyboard/typing.png" alt=""></p>
+<h2 id="summary">Summary</h2>
+<p>I&rsquo;m pretty happy with the end result. Going from a tactile clicky switch to a linear switch definitely makes a difference in my typing speed. The &ldquo;thock&rdquo; sound that the keys make is also very satisfying. It&rsquo;s great to have the arrow and page navigation keys so close to my right hand. Overall there&rsquo;s not much I would change except for a nicer looking keycap set.</p>
+<p>Components</p>
+<ul>
+<li><a href="https://kbdfans.com/collections/diy-kit/products/kbd75v2-custom-keyboard-diy-kit?variant=28725491269680">KBD75v2 gray case and brass plate</a></li>
+<li><a href="https://kbdfans.com/collections/75/products/kbdfans-75-pcb-75">KBD75 Rev 2.0 PCB</a></li>
+<li><a href="https://www.amazon.com/dp/B07ZLXCWY9?tag=millup-20&amp;th=1">Stabilizers</a> lubed with <a href="https://divinikey.com/collections/lubricant/products/krytox-gpl-205-grade-0-switch-lubricant">Krytox 205g0</a> and screwed in with <a href="https://www.amazon.com/a15112300ux0387-2mmx4mmx0-5mm-Motherboard-Insulating-Washers/dp/B01ARADX88/">washers</a></li>
+<li><a href="https://divinikey.com/collections/linear-switches/products/gateron-ink-v2-switches">84x Gateron Black Ink switches</a> lubed with <a href="https://divinikey.com/collections/lubricant/products/krytox-gpl-205-grade-0-switch-lubricant">Krytox 205g0</a> with <a href="https://www.amazon.com/Mechanical-Keyboard-Inter-axial-Structure-Compatible/dp/B08FM7147Q/">0.15mm film</a></li>
+<li><a href="https://kbdfans.com/collections/cherry-profile/products/enjoypbt-abs-dolch-doubleshot-mechanical-keyboard-keycaps-set">EnjoyPBT ABS Doubleshot keycaps</a></li>
+<li>Any USB-C cable</li>
+</ul>
+<p>Tools (<a href="https://kit.co/andyvnguyen/keyboards">recommended by Andy V Nguyen</a>)</p>
+<ul>
+<li><a href="https://www.amazon.com/gp/product/B01D9W6SNS/">Brushes</a></li>
+<li><a href="https://www.amazon.com/gp/product/B00FZPFQHM">Tweezers</a></li>
+<li><a href="https://www.amazon.com/gp/product/B01DPZ08NA/">Jeweler holder</a></li>
+<li><a href="https://www.amazon.com/gp/product/B07XQGLP8H/">Switch opener</a></li>
+<li><a href="https://www.amazon.com/gp/product/B075CZCTXM/">Keycap &amp; switch puller</a></li>
+<li><a href="https://www.amazon.com/gp/product/B00QZLV03O/">Screwdriver set</a></li>
+<li><a href="https://www.amazon.com/gp/product/B00ANZRT4M/">Solder station</a></li>
+<li><a href="https://www.amazon.com/gp/product/B00068IJOU/">Solder</a></li>
+<li><a href="https://www.amazon.com/gp/product/B07VWDN29F/">Solder fume extractor</a></li>
+<li><a href="https://www.amazon.com/gp/product/B002MJMXD4/">Solder sucker</a></li>
+</ul>
+
+  </div>
+  
+
+<div class="navigation navigation-single">
+    
+    <a href="/posts/laziness-and-streams-pt-2/" class="navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span class="navigation-tittle">Laziness and Streams - Part 2</span>
+    </a>
+    
+    
+</div>
+
+
+  
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-151912961-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
+
+    
+    
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+
+    
+
+
+
+    </body>
+</html>
