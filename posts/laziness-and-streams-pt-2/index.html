@@ -11,7 +11,7 @@
 <meta http-equiv="Cache-Control" content="public" />
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.92.2" />
 
     
     
@@ -27,9 +27,10 @@
 <meta property="og:title" content="Laziness and Streams - Part 2" />
 <meta property="og:description" content="Following up from Laziness and Streams - Part 1 and inspired by Jeremy Fairbank&rsquo;s function streams in JavaScript I wanted to try to implement a lazy Stream in Python. The problem is that Python does not have non-strict arguments like Scala does with the =&gt; operator. Python does have a lambda keyword which you can use to define functions in a single line expression. The lambda keyword doesn&rsquo;t need to take arguments, so it can be used as a non-strictness operator hack." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jjmalina.github.io/posts/laziness-and-streams-pt-2/" />
+<meta property="og:url" content="https://jjmalina.github.io/posts/laziness-and-streams-pt-2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-11-03T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-11-03T00:00:00+00:00" />
+
 
 
     
@@ -134,7 +135,7 @@
     </div>
     
 <div class="copyright">
-  &copy; 2020 Jeremiah Malina
+  &copy; 2024 Jeremiah Malina
   
 </div>
 
@@ -170,7 +171,7 @@
   
   <div class="post">
     <p>Following up from <a href="/posts/laziness-and-streams-pt-1">Laziness and Streams - Part 1</a> and inspired by <a href="https://blog.jeremyfairbank.com/javascript/functional-javascript-streams-2/">Jeremy Fairbank&rsquo;s function streams in JavaScript</a> I wanted to try to implement a lazy Stream in Python. The problem is that Python does not have non-strict arguments like Scala does with the <code>=&gt;</code> operator. Python does have a <code>lambda</code> keyword which you can use to define functions in a single line expression. The <code>lambda</code> keyword doesn&rsquo;t need to take arguments, so it can be used as a non-strictness operator hack. This adds a lot of extra syntax, but it allows us to simulate non-strictness and build the same lazy stream implementation that we had in Scala. Here is the code to do the basic Stream construction with map and filter.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Stream</span>(<span style="color:#a2f">object</span>):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">Stream</span>(<span style="color:#a2f">object</span>):
     <span style="color:#a2f">@staticmethod</span>
     <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">create</span>(<span style="color:#666">*</span>args):
         <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#a2f;font-weight:bold">not</span> args:
@@ -180,13 +181,13 @@
             <span style="color:#a2f;font-weight:bold">lambda</span>: Stream<span style="color:#666">.</span>create(<span style="color:#666">*</span>(args[<span style="color:#666">1</span>:]))
         )
 
-    <span style="color:#a2f;font-weight:bold">def</span> __init__(self, head<span style="color:#666">=</span>None, tail<span style="color:#666">=</span>None):
+    <span style="color:#a2f;font-weight:bold">def</span> __init__(self, head<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">None</span>, tail<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">None</span>):
         self<span style="color:#666">.</span>head <span style="color:#666">=</span> head
         self<span style="color:#666">.</span>tail <span style="color:#666">=</span> tail
 
     <span style="color:#a2f">@property</span>
     <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">empty</span>(self):
-        <span style="color:#a2f;font-weight:bold">return</span> self<span style="color:#666">.</span>head <span style="color:#a2f;font-weight:bold">is</span> None
+        <span style="color:#a2f;font-weight:bold">return</span> self<span style="color:#666">.</span>head <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">None</span>
 
     <span style="color:#a2f;font-weight:bold">def</span> __str__(self):
         value <span style="color:#666">=</span> <span style="color:#b44">&#34;</span><span style="color:#b68;font-weight:bold">%s</span><span style="color:#b44">&#34;</span> <span style="color:#666">%</span> self<span style="color:#666">.</span>head() <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#a2f;font-weight:bold">not</span> self<span style="color:#666">.</span>empty <span style="color:#a2f;font-weight:bold">else</span> <span style="color:#b44">&#34;&#34;</span>
@@ -212,11 +213,11 @@
             <span style="color:#a2f;font-weight:bold">lambda</span> a, b: (Stream(<span style="color:#a2f;font-weight:bold">lambda</span>: a, b) <span style="color:#a2f;font-weight:bold">if</span> f(a) <span style="color:#a2f;font-weight:bold">else</span> b())
         )
 </code></pre></div><p>We can do the same lazy mapping and filtering as we did in Scala:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#666">=</span> Stream<span style="color:#666">.</span>create(<span style="color:#a2f;font-weight:bold">lambda</span>: <span style="color:#666">1</span>, <span style="color:#a2f;font-weight:bold">lambda</span>: <span style="color:#666">2</span>, <span style="color:#a2f;font-weight:bold">lambda</span>: <span style="color:#666">3</span>)<span style="color:#666">.</span>map(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">+</span> <span style="color:#666">1</span>)<span style="color:#666">.</span>filter(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">%</span> <span style="color:#666">2</span> <span style="color:#666">==</span> <span style="color:#666">0</span>)
-<span style="color:#a2f;font-weight:bold">print</span>(s)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#666">=</span> Stream<span style="color:#666">.</span>create(<span style="color:#a2f;font-weight:bold">lambda</span>: <span style="color:#666">1</span>, <span style="color:#a2f;font-weight:bold">lambda</span>: <span style="color:#666">2</span>, <span style="color:#a2f;font-weight:bold">lambda</span>: <span style="color:#666">3</span>)<span style="color:#666">.</span>map(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">+</span> <span style="color:#666">1</span>)<span style="color:#666">.</span>filter(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">%</span> <span style="color:#666">2</span> <span style="color:#666">==</span> <span style="color:#666">0</span>)
+<span style="color:#a2f">print</span>(s)
 </code></pre></div><p>We get <code>Stream(2, Stream(4, Stream()))</code>.</p>
 <p>If we wanted to create a stream from another iterable, we could write a  <code>create_from_iterator</code> method which lazily iterates over the data to create a Stream.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f">@staticmethod</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f">@staticmethod</span>
 <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">create_from_iterator</span>(iterable):
     iterator <span style="color:#666">=</span> <span style="color:#a2f">iter</span>(iterable)
     <span style="color:#a2f;font-weight:bold">try</span>:
@@ -228,15 +229,15 @@
         <span style="color:#a2f;font-weight:bold">lambda</span>: Stream<span style="color:#666">.</span>create_from_iterator(iterator)
     )
 </code></pre></div><p>No we can do:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#666">=</span> Stream<span style="color:#666">.</span>create_from_iterator(<span style="color:#a2f">range</span>(<span style="color:#666">1</span>, <span style="color:#666">4</span>))<span style="color:#666">.</span>map(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">+</span> <span style="color:#666">1</span>)<span style="color:#666">.</span>filter(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">%</span> <span style="color:#666">2</span> <span style="color:#666">==</span> <span style="color:#666">0</span>)
-<span style="color:#a2f;font-weight:bold">print</span>(s)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">s <span style="color:#666">=</span> Stream<span style="color:#666">.</span>create_from_iterator(<span style="color:#a2f">range</span>(<span style="color:#666">1</span>, <span style="color:#666">4</span>))<span style="color:#666">.</span>map(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">+</span> <span style="color:#666">1</span>)<span style="color:#666">.</span>filter(<span style="color:#a2f;font-weight:bold">lambda</span> i: i <span style="color:#666">%</span> <span style="color:#666">2</span> <span style="color:#666">==</span> <span style="color:#666">0</span>)
+<span style="color:#a2f">print</span>(s)
 </code></pre></div><p>The result is the same as before: <code>Stream(2, Stream(4, Stream()))</code>.
 However, calling next on an iterator is not pure since it changes the state of the iterator. This side effect makes evaluating the stream more than once return different results.
 If we call <code>print(s)</code> again the result is <code>Stream(2, Stream())</code>.</p>
 <p>So using iterators to create streams is not ideal because we&rsquo;re forced to mutate state which leads to inconsistent results. We need a different way to create streams.</p>
 <h2 id="purely-generating-streams">Purely generating streams</h2>
 <p>To generate the sequence <code>1, 2, 3</code> we could write a function like:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">range_stream</span>(start, end):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">range_stream</span>(start, end):
     <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">loop</span>(current):
         <span style="color:#a2f;font-weight:bold">if</span> current <span style="color:#666">==</span> end:
             <span style="color:#a2f;font-weight:bold">return</span> Stream()
@@ -248,7 +249,7 @@ If we call <code>print(s)</code> again the result is <code>Stream(2, Stream())</
 </code></pre></div><p>Running <code>print(range_stream(1, 4))</code> will print <code>Stream(1, Stream(2, Stream(3, Stream())))</code>.</p>
 <p>Now let&rsquo;s say we wanted a never ending stream of the fibonacci numbers.
 We can write another recursive function.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">fibonacci</span>():
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">fibonacci</span>():
     <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">loop</span>(n_minus_1, n):
         <span style="color:#a2f;font-weight:bold">return</span> Stream(
             <span style="color:#a2f;font-weight:bold">lambda</span>: n_minus_1,
@@ -256,7 +257,7 @@ We can write another recursive function.</p>
         )
     <span style="color:#a2f;font-weight:bold">return</span> loop(<span style="color:#666">0</span>, <span style="color:#666">1</span>)
 </code></pre></div><p>If we call <code>fibonacci</code> it will give us a Stream that never terminates. So we can&rsquo;t actually use any of the values right now. But if we implement a <code>take</code> function on <code>Stream</code> we can take <code>n</code> fibonacci numbers into a new <code>Stream</code> and evaluate that.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">take</span>(self, n):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">take</span>(self, n):
     <span style="color:#a2f;font-weight:bold">if</span> n <span style="color:#666">==</span> <span style="color:#666">0</span>:
         <span style="color:#a2f;font-weight:bold">return</span> Stream()
     <span style="color:#a2f;font-weight:bold">return</span> Stream(
@@ -265,7 +266,7 @@ We can write another recursive function.</p>
     )
 </code></pre></div><p>Running <code>print(fibonacci().take(5))</code> gives <code>Stream(0, Stream(1, Stream(1, Stream(2, Stream(3, Stream())))))</code>.</p>
 <p>The pattern in generating streams is that we always need a recursive function. There is a function called <code>unfold</code> that allows us to simplify generating a stream.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">unfold</span>(self, state, f):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">unfold</span>(self, state, f):
     <span style="color:#b44">&#34;&#34;&#34;
 </span><span style="color:#b44">    Takes a state and a function f which is passed a state
 </span><span style="color:#b44">    and returns either None or a (value, state) pair
@@ -279,7 +280,7 @@ We can write another recursive function.</p>
         <span style="color:#a2f;font-weight:bold">lambda</span>: self<span style="color:#666">.</span>unfold(next_state, f)
     )
 </code></pre></div><p>We can now implement <code>fibonacci</code> using <code>unfold</code>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">fibonacci</span>():
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">fibonacci</span>():
     <span style="color:#a2f;font-weight:bold">return</span> Stream()<span style="color:#666">.</span>unfold(
         (<span style="color:#666">0</span>, <span style="color:#666">1</span>),
         <span style="color:#a2f;font-weight:bold">lambda</span> state: (
@@ -288,7 +289,7 @@ We can write another recursive function.</p>
         )
     )
 </code></pre></div><p>We can also refactor <code>take</code> using <code>unfold</code>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">take_unfold</span>(self, n):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">take_unfold</span>(self, n):
     <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">unfolder</span>(state):
         remaining, stream <span style="color:#666">=</span> state
         <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#a2f;font-weight:bold">not</span> remaining:
@@ -296,8 +297,8 @@ We can write another recursive function.</p>
         <span style="color:#a2f;font-weight:bold">return</span> (stream<span style="color:#666">.</span>head(), (remaining <span style="color:#666">-</span> <span style="color:#666">1</span>, stream<span style="color:#666">.</span>tail()))
     <span style="color:#a2f;font-weight:bold">return</span> self<span style="color:#666">.</span>unfold((n, self), unfolder)
 </code></pre></div><p>Now if we wanted to implement Python&rsquo;s <code>range</code> function, we could do it using <code>unfold</code>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">stream_range</span>(start, end<span style="color:#666">=</span>None):
-    <span style="color:#a2f;font-weight:bold">if</span> end <span style="color:#a2f;font-weight:bold">is</span> None:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">stream_range</span>(start, end<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">None</span>):
+    <span style="color:#a2f;font-weight:bold">if</span> end <span style="color:#a2f;font-weight:bold">is</span> <span style="color:#a2f;font-weight:bold">None</span>:
         end <span style="color:#666">=</span> start
         start <span style="color:#666">=</span> <span style="color:#666">0</span>
 
@@ -309,7 +310,7 @@ We can write another recursive function.</p>
     <span style="color:#a2f;font-weight:bold">return</span> Stream()<span style="color:#666">.</span>unfold(start, create_range_stream)
 </code></pre></div><p>To make our <code>Stream</code> data type play nice with the rest of Python where you may want to use a for loop or a comprehension we can implement <code>__iter__</code> and <code>__next__</code> in a type that wraps a Stream.</p>
 <p>If we want to be able to use streams in for loops we can do so by implementing <code>__iter__</code> and <code>__next__</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> __iter__(self):
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">def</span> __iter__(self):
     <span style="color:#b44">&#34;&#34;&#34;On the Stream type
 </span><span style="color:#b44">    &#34;&#34;&#34;</span>
     <span style="color:#a2f;font-weight:bold">return</span> StreamIterator(self)
@@ -318,7 +319,7 @@ We can write another recursive function.</p>
     <span style="color:#a2f;font-weight:bold">def</span> __init__(self, stream):
         self<span style="color:#666">.</span>stream <span style="color:#666">=</span> stream
 
-    <span style="color:#a2f;font-weight:bold">def</span> <span style="color:#00a000">__next__</span>(self):
+    <span style="color:#a2f;font-weight:bold">def</span> __next__(self):
         <span style="color:#a2f;font-weight:bold">if</span> self<span style="color:#666">.</span>stream<span style="color:#666">.</span>empty:
             <span style="color:#a2f;font-weight:bold">raise</span> <span style="color:#d2413a;font-weight:bold">StopIteration</span>
 
@@ -327,8 +328,8 @@ We can write another recursive function.</p>
         <span style="color:#a2f;font-weight:bold">return</span> value
 </code></pre></div><p>We have to implement a container class for the stream iterator because <code>Stream</code> is an immutable data structure while the iterator needs to be mutated to keep track of what value to return next.</p>
 <p>It&rsquo;s handy to iterate over a stream in a for loop or comprehension.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> stream_range(<span style="color:#666">5</span>, <span style="color:#666">10</span>):
-    <span style="color:#a2f;font-weight:bold">print</span>(i)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a2f;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> stream_range(<span style="color:#666">5</span>, <span style="color:#666">10</span>):
+    <span style="color:#a2f">print</span>(i)
 
 [i <span style="color:#a2f;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> stream_range(<span style="color:#666">5</span>, <span style="color:#666">10</span>)]
 </code></pre></div><p>Here&rsquo;s a python fiddle with all the code: <a href="https://pyfiddle.io/fiddle/5029d21b-34f4-4a34-929d-ce69d8e954dd/?i=true">https://pyfiddle.io/fiddle/5029d21b-34f4-4a34-929d-ce69d8e954dd/?i=true</a></p>
@@ -383,15 +384,6 @@ if (!doNotTrack) {
 
 
 <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
-
-
-    
-    
-    <script type="text/javascript">
-        
-        hljs.initHighlightingOnLoad();
-    </script>
-    
 
 
 
